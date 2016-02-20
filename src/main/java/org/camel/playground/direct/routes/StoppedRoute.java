@@ -4,6 +4,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.camel.playground.direct.processors.RouteStoppingProcessor;
 
 /**
+ * Implementation meant to show illustrate the route stopping functionality.
  * Created by dragos.triteanu on 2/19/16.
  */
 public class StoppedRoute extends RouteBuilder {

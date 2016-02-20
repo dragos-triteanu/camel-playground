@@ -1,5 +1,6 @@
 package org.camel.playground.direct.beans;
 
+import org.camel.playground.direct.model.SomeModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,5 +15,10 @@ public class SomeBean {
         String newBody = String.format("BeanCode(%s)",body);
         LOG.info(newBody);
         return newBody;
+    }
+
+    public SomeModel alterModel(SomeModel someModel){
+        someModel.setSomeFiled("Altered "+someModel.getSomeFiled());
+        return someModel;
     }
 }
