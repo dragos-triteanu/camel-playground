@@ -3,7 +3,6 @@ target/**
 .classpath
 .springBeans
 .idea/**
-**/.idea
 *.iml
 .settings/**
 src/main/webapp/resources/libs/**
