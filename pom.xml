@@ -37,6 +37,7 @@
     <log4j-version>1.2.17</log4j-version>
     <junit-version>4.11</junit-version>
     <cxf-version>3.1.4</cxf-version>
+    <activemq-version>5.12.1</activemq-version>
 
     <maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
     <maven-bundle-plugin-version>2.4.0</maven-bundle-plugin-version>
@@ -105,8 +106,13 @@
       <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+      <version>${activemq-version}</version>
+    </dependency>
+  </dependencies>
 
 
   <build>

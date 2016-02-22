@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+       ">
+
+    <!-- This creates an embedded ActiveMQ Broker -->
+    <broker xmlns="http://activemq.apache.org/schema/core" useJmx="true" persistent="false" brokerName="someBroker" id="broker">
+        <transportConnectors>
+            <transportConnector uri="vm://someBroker"/>
+        </transportConnectors>
+    </broker>
+
+    <!--
+        Lets connect the Camel ActiveMQ component to the embedded broker.
+        See http://camel.apache.org/activemq.html for more information.
+    -->
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="vm://someBroker?create=false"/>
+    </bean>
+
+    <bean id="consumerBean" class="org.camel.playground.activemq.beans.SomeMessageDrivenBean"/>
+    <bean id="producerBean" class="org.camel.playground.activemq.beans.SomeMessageProducerBean" />
+
+    <!-- depend on the broker so Spring will shutdown the embedded broker after Camel -->
+    <camelContext xmlns="http://camel.apache.org/schema/spring" depends-on="broker" autoStartup="true">
+        <package>org.camel.playground.activemq.routes</package>
+    </camelContext>
+
+</beans>
