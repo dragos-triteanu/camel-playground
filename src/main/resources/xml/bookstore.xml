@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<bookstore>
+    <book category="COOKING">
+        <title lang="en">Italian cooking</title>
+        <author>Francesco Lombardi</author>
+        <year>2016</year>
+        <price>11</price>
+    </book>
+    <book category="CODING">
+        <title lang="en">JS Succintly</title>
+        <author>Cody Linsday</author>
+        <year>2010</year>
+        <price>37</price>
+    </book>
+    <book category="ART">
+        <title lang="en">Modigliani</title>
+        <author>El Pricnipe</author>
+        <year>2011</year>
+        <price>88</price>
+    </book>
+</bookstore>
